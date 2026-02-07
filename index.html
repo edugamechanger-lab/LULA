@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LULA — род существительных FR A1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <button id="backBtn" class="ghost hidden">← Назад</button>
+        <h1 id="screenTitle">LULA</h1>
+      </header>
+
+      <main>
+        <section id="menuScreen" class="screen active">
+          <div class="card big">
+            <h2>Выберите режим</h2>
+            <div class="menu-actions">
+              <button id="goBasic" class="primary">LULA Basic</button>
+              <button id="goCloud" class="primary">LULA Cloud Timer</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="basicScreen" class="screen">
+          <div class="scoreboard" id="basicScore">Верно: 0 | Ошибок: 0</div>
+          <div class="basic-layout">
+            <div class="drop-zone le" data-zone="le">LE</div>
+            <div class="center-area">
+              <div id="basicWordCard" class="word-card" tabindex="0"></div>
+              <div class="quick-buttons">
+                <button id="pickLe" class="le">LE</button>
+                <button id="pickLa" class="la">LA</button>
+              </div>
+            </div>
+            <div class="drop-zone la" data-zone="la">LA</div>
+          </div>
+        </section>
+
+        <section id="cloudSettingsScreen" class="screen">
+          <div class="card">
+            <h2>Настройки Cloud Timer</h2>
+            <label>Количество слов (3–20)
+              <input id="wordCountInput" type="number" min="3" max="20" value="8" />
+            </label>
+            <label>Таймер
+              <select id="timerSelect">
+                <option value="15">15 сек</option>
+                <option value="20" selected>20 сек</option>
+                <option value="30">30 сек</option>
+              </select>
+            </label>
+            <p id="settingsHint" class="hint"></p>
+            <button id="startCloud" class="primary">START</button>
+          </div>
+        </section>
+
+        <section id="cloudGameScreen" class="screen">
+          <div id="timer" class="timer">00:20</div>
+          <div id="cloudArea" class="cloud-area"></div>
+          <div class="zones-row">
+            <div id="zoneLe" class="drop-zone le" data-zone="le">LE</div>
+            <div id="zoneLa" class="drop-zone la" data-zone="la">LA</div>
+          </div>
+          <div id="cloudPostActions" class="post-actions hidden">
+            <button id="againBtn" class="primary">🔁 Ещё раунд</button>
+            <button id="settingsBtn" class="ghost">⚙️ Настройки</button>
+            <button id="menuBtn" class="ghost">⬅️ Назад в меню</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="feedbackOverlay" class="overlay hidden">
+      <article class="feedback-card" id="feedbackCard"></article>
+    </div>
+
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
